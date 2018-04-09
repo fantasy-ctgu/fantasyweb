@@ -7,5 +7,5 @@ import com.ctgu.qmx.dao.BillDao;
 
 public interface AbstructFactory {
 	public abstract AdminDao getAdminDaoImpl() throws SQLException;
-	public abstract BillDao getBillDaoImpl() throws SQLException;
+	public abstract <T extends BillDao> T getBillDaoImpl(Class<T> clz);
 }

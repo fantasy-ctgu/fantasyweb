@@ -8,14 +8,19 @@ import java.util.List;
 
 import com.ctgu.qmx.dao.AdminDao;
 import com.ctgu.qmx.entity.AdminUsers;
+import com.ctgu.qmx.utils.DBUtils;
 
 public class AdminDaoImpl implements AdminDao{
 
 	private Connection con;
 	private PreparedStatement ps;
 	
-	public AdminDaoImpl(Connection con) {
-		this.con = con;
+	public AdminDaoImpl() {
+		try {
+			this.con = DBUtils.getCon();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
